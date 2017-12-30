@@ -7,6 +7,7 @@ build() {
 # build
   echo Building axelspringer/dynamodb:${TAG}
     docker build \
+      --squash \
       --compress \
       -t axelspringer/dynamodb:${TAG} \
       . || exit $?

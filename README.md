@@ -10,9 +10,18 @@ https://aws.amazon.com/de/dynamodb/
 
 [![](https://badge.imagelayers.io/axelspringer/dynamodb:latest.svg)](https://imagelayers.io/?images=axelspringer/dynamodb:latest)
 
-```
-# You can use 
+```bash
+# to run an ephemeral instance of DynamoDB
 docker run -d --rm --name dynamodb -p 8000:8000 -it axelspringer/dynamodb
+```
+
+You can access the DynamoDB shell at [http://localhost:8000/shell](http://localhost:8000/shell).
+
+```
+# or create a docker volume
+docker create volume db
+# attach the docker volume to the docker and persist data
+docker run -d --rm -v db:/data:rw --name dynamodb -p 8000:8000 -it axelspringer/dynamodb -dbPath /data
 ```
 
 # License
